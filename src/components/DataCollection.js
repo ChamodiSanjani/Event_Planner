@@ -1,8 +1,10 @@
 // src/components/DataCollection.js
 import React, { useState } from 'react';
 import { auth, googleProvider } from '../firebaseConfig';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const DataCollection = () => {
+  const navigate = useNavigate(); // Initialize navigate
   const [user, setUser] = useState(null);
   const [formData, setFormData] = useState({
     event_name: '',
@@ -30,6 +32,7 @@ const DataCollection = () => {
       .then(() => {
         setUser(null);
         console.log('User logged out');
+        navigate('/'); // Redirect to the home page
       })
       .catch((error) => {
         console.error('Error during logout:', error);
@@ -64,18 +67,23 @@ const DataCollection = () => {
       padding: '20px',
       backgroundColor: '#fff',
       borderRadius: '8px',
-      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
     }}>
       {!user ? (
-        // Display login button if user is not logged in
-        <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+        // Centering the login button
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh', // Ensure it takes the full height of the viewport
+        }}>
           <button onClick={handleGoogleLogin} style={{
             padding: '10px 15px',
             backgroundColor: '#4285F4',
             color: '#fff',
             border: 'none',
             borderRadius: '4px',
-            cursor: 'pointer'
+            cursor: 'pointer',
           }}>
             Log in with Google
           </button>
@@ -91,7 +99,7 @@ const DataCollection = () => {
               color: '#fff',
               border: 'none',
               borderRadius: '4px',
-              cursor: 'pointer'
+              cursor: 'pointer',
             }}>
               Log out
             </button>
@@ -114,7 +122,7 @@ const DataCollection = () => {
                   width: '100%',
                   padding: '10px',
                   border: '1px solid #ccc',
-                  borderRadius: '4px'
+                  borderRadius: '4px',
                 }}
               />
             </div>
@@ -132,7 +140,7 @@ const DataCollection = () => {
                   width: '100%',
                   padding: '10px',
                   border: '1px solid #ccc',
-                  borderRadius: '4px'
+                  borderRadius: '4px',
                 }}>
                 <option value="">Select Event Type</option>
                 <option value="Wedding">Wedding</option>
@@ -158,7 +166,7 @@ const DataCollection = () => {
                   width: '100%',
                   padding: '10px',
                   border: '1px solid #ccc',
-                  borderRadius: '4px'
+                  borderRadius: '4px',
                 }}
               />
             </div>
@@ -177,7 +185,7 @@ const DataCollection = () => {
                   width: '100%',
                   padding: '10px',
                   border: '1px solid #ccc',
-                  borderRadius: '4px'
+                  borderRadius: '4px',
                 }}
               />
             </div>
@@ -196,7 +204,7 @@ const DataCollection = () => {
                   width: '100%',
                   padding: '10px',
                   border: '1px solid #ccc',
-                  borderRadius: '4px'
+                  borderRadius: '4px',
                 }}
               />
             </div>
@@ -216,7 +224,7 @@ const DataCollection = () => {
                   width: '100%',
                   padding: '10px',
                   border: '1px solid #ccc',
-                  borderRadius: '4px'
+                  borderRadius: '4px',
                 }}
               />
             </div>
@@ -237,7 +245,7 @@ const DataCollection = () => {
                   border: '1px solid #ccc',
                   borderRadius: '4px',
                   height: '100px',
-                  resize: 'vertical'
+                  resize: 'vertical',
                 }}
               ></textarea>
             </div>
@@ -249,7 +257,7 @@ const DataCollection = () => {
                 backgroundColor: '#5cb85c',
                 color: '#fff',
                 border: 'none',
-                cursor: 'pointer'
+                cursor: 'pointer',
               }}>
                 Submit Event
               </button>
