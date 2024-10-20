@@ -1133,3 +1133,24 @@ canvas {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* In your CSS file */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    flex: 1; /* Allow body to take remaining space */
+}
+
+footer {
+    background-color: rgb(0, 0, 0); /* Change as needed */
+    text-align: center;
+    padding: 10px 0;
+    position: relative; /* Ensure footer is positioned correctly */
+    width: 100%;
+}
+
