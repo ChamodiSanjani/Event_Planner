@@ -31,7 +31,7 @@ const Home = () => (
           </div>
           <div className="image-container">
             <img src="https://content.jdmagicbox.com/v2/comp/delhi/b8/011pxx11.xx11.210621161154.z3b8/catalogue/gfx-events-sant-nagar-east-of-kailash-delhi-wedding-planners-uafhpvf3om.jpg" alt="Gallery Image 4" />
-            <Link to="/reviews" className="button-overlay">Reviews</Link>
+            <Link to="/reviews" className="button-overlay">View All Reviews</Link> {/* Updated link to Reviews page */}
           </div>
         </div>
       </div>
